@@ -19,6 +19,10 @@ namespace PSFinder.src
         {
             get { return getStockMessage(); }
         }
+
+        public bool SuccessfulStockCheck {
+            get { return stockCheckPassed; }
+        }
         public bool HasPs5Stock
         {
             get { return hasPs5Stock; }
