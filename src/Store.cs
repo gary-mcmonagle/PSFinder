@@ -6,7 +6,9 @@ namespace PSFinder.src
     {
         private protected string name = "";
         private protected string stockAlert = "";
-        private protected bool hasStock = false;
+        private protected bool hasPs5Stock = false;
+
+        private protected bool stockCheckPassed = false;
 
         abstract public Task<bool> TakeStock();
         public string Name
@@ -17,14 +19,17 @@ namespace PSFinder.src
         {
             get { return getStockMessage(); }
         }
-        public bool HasStock
+        public bool HasPs5Stock
         {
-            get { return hasStock; }
+            get { return hasPs5Stock; }
         }
 
 
         private protected string getStockMessage() {
-            if(hasStock) {
+            if(!this.stockCheckPassed) {
+                return $"Could not get stock for {name}";
+            }
+            if(hasPs5Stock) {
                 return "In Stock";
             }
             return $"No stock available at {name}";

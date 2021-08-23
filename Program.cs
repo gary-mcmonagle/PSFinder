@@ -20,7 +20,6 @@ namespace PSFinder
 
             List<Store> stores = new List<Store>{
                 new Amazon(),
-                // new Smyths(),
                 new JohnLewis()
             };
             var stockTasks = stores.Select(store => store.TakeStock()).ToList();
@@ -31,8 +30,6 @@ namespace PSFinder
             foreach(string message in stockMessages) {
                 Console.WriteLine(message);
             }
-
-
         }
 
     }

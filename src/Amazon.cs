@@ -21,7 +21,8 @@ namespace PSFinder.src
             var pageTasks = ids.Select(id => checkPage(id));
             var pages = await Task.WhenAll(pageTasks);
             var inStockPages = pages.Where(x => x == true).ToList();
-            this.hasStock = inStockPages.Count > 0;
+            this.stockCheckPassed = true;
+            this.hasPs5Stock = inStockPages.Count > 0;
             return inStockPages.Count > 0;
         }
 
@@ -39,7 +40,6 @@ namespace PSFinder.src
             htmlDoc.LoadHtml(page); 
             var availability = htmlDoc.DocumentNode.SelectSingleNode("//*[@id=\"availability\"]/span");
             var stockMessage = availability.FirstChild.InnerHtml.ToString().Trim();	
-            
             return !stockMessage.Equals("Currently unavailable.");
         }
     }
