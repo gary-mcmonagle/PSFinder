@@ -27,9 +27,9 @@ namespace PSFinder
 
             var stockMessages = stores.Select(store => store.StockAlert).ToList();
 
-            foreach(string message in stockMessages) {
-                Console.WriteLine(message);
-            }
+
+            StockReporter sr = new StockReporter(stores);
+            sr.GenerateReport();
         }
 
     }
