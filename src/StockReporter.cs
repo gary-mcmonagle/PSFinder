@@ -15,8 +15,13 @@ namespace PSFinder.src
 
 
         public void GenerateReport() {
-            string text = "old falcon";
-            File.WriteAllText("email.html", text);
+
+
+            string email = "";
+            foreach (Store store in this.stores) {
+                email += store.StockAlert + "\n";
+            }
+            File.WriteAllText("email.html", email);
         }
     }
 }
