@@ -16,7 +16,7 @@ namespace PSFinder.src
 
         public void GenerateReport() {
             string text = "old falcon";
-            File.WriteAllText("/email.html", text);
+            File.WriteAllText("email.html", text);
         }
     }
 }
