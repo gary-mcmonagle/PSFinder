@@ -2,6 +2,11 @@ on:
   schedule:
     # * is a special character in YAML so you have to quote this string
     - cron:  '0 7,9,12,15,21 * * *'
+  workflow_dispatch:
+    inputs:
+        name:
+          description: 'Person to greet'
+          default: 'Mona the Octocat'
 
 jobs:
   build:
