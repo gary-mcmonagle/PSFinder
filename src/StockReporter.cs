@@ -27,14 +27,13 @@ namespace PSFinder.src
 
 
         public void GenerateReport() {
-
-
             string emailHtml = "";
             foreach (Store store in this.stores) {
                 emailHtml += getHtmlForStoreAlert(store);
-
+                Console.WriteLine($"{store.Name}: {store.StockAlert}");
             }
             File.WriteAllText("email.html", emailHtml);
         }
+        
     }
 }
