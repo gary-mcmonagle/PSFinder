@@ -19,9 +19,12 @@ namespace PSFinder
         {
 
             List<Store> stores = new List<Store>{
+                new Argos(),
                 new Amazon(),
                 new JohnLewis(),
-                new Game()
+                new Game(),
+
+                //new Smyths()
             };
             var stockTasks = stores.Select(store => store.TakeStock()).ToList();
             await Task.WhenAll(stockTasks);
